@@ -1,0 +1,28 @@
+/* google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+@layer components {
+  .sticky__header {
+    @apply w-full h-[70px] sticky top-0 left-0 z-10 bg-white shadow-xl;
+  }
+
+  .footer__links-title {
+    @apply text-white text-lg mb-5;
+  }
+
+  .footer__links-item {
+    @apply block py-2 hover:text-white;
+  }
+
+  .contact__list-item {
+    @apply flex gap-4;
+  }
+}
