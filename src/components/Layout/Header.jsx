@@ -1,11 +1,27 @@
 import { useState, useRef, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 import Container from "./Container";
 import Logo from "../UI/Logo";
 import Icon from "../UI/Icon";
 import UserIcon from "../../assets/images/user-icon.png";
 import Sidebar from "./Sidebar";
-import NavLinks from "./NavLinks";
+import Badge from "../UI/Badge";
+
+const links = [
+  {
+    path: "home",
+    display: "Home",
+  },
+  {
+    path: "shop",
+    display: "Shop",
+  },
+  {
+    path: "cart",
+    display: "Cart",
+  },
+];
 
 const Header = () => {
   const headerRef = useRef(null);
@@ -30,8 +46,12 @@ const Header = () => {
 
   const [sidebarIsShow, setSidebarIsShow] = useState(false);
 
-  const toggleSidebar = () => {
-    setSidebarIsShow(!sidebarIsShow);
+  const openSidebar = () => {
+    setSidebarIsShow(true);
+  };
+
+  const closeSidebar = () => {
+    setSidebarIsShow(false);
   };
 
   return (
@@ -40,22 +60,37 @@ const Header = () => {
         <Logo />
         <div className="navigation hidden lg:block">
           <ul className="menu flex items-center gap-10 ">
-            <NavLinks />
+            {links.map((link) => (
+              <li key={link.path} className="text-sm md:text-base">
+                <NavLink
+                  to={link.path}
+                  className={(navClass) =>
+                    navClass.isActive ? "font-bold" : ""
+                  }
+                >
+                  {link.display}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="nav-icons flex items-center gap-4">
-          <Icon name="ri-home-heart-line" />
-          <Icon name="ri-shopping-bag-line" />
+          <Icon name="ri-home-heart-line">
+            <Badge num="1" />
+          </Icon>
+          <Icon name="ri-shopping-bag-line">
+            <Badge num="6" />
+          </Icon>
           <span className="cursor-pointer">
             <img src={UserIcon} alt="user icon" className="w-8" />
           </span>
           <Icon
             name="ri-menu-line"
             className="lg:hidden"
-            onClick={toggleSidebar}
+            onClick={openSidebar}
           />
         </div>
-        {sidebarIsShow && <Sidebar onClose={toggleSidebar} />}
+        {sidebarIsShow && <Sidebar onClose={closeSidebar} links={links} />}
       </Container>
     </header>
   );

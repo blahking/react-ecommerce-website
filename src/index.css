@@ -25,4 +25,24 @@ body {
   .contact__list-item {
     @apply flex gap-4;
   }
+
+  .clock__data {
+    @apply flex flex-col text-center;
+  }
+
+  .clock__data-num {
+    @apply text-3xl font-semibold;
+  }
+
+  .clock__data-text {
+    @apply text-lg;
+  }
+
+  .clock__data-divide {
+    @apply text-3xl;
+  }
+
+  .sidebar__link {
+    @apply flex justify-center py-4;
+  }
 }

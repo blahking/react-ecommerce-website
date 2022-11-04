@@ -7,6 +7,8 @@ import Section from "../components/Layout/Section";
 import ProductsList from "../components/Products/ProductsList";
 import products from "../assets/data/products";
 import Container from "../components/Layout/Container";
+import Clock from "../components/Clock/Clock";
+import CounterImg from "../assets/images/counter-timer-img.png";
 
 const Home = () => {
   const [trendingProducts, setTrendingProducts] = useState([]);
@@ -53,6 +55,18 @@ const Home = () => {
       <Section title="Best Sales">
         <ProductsList products={bestSalesProducts} />
       </Section>
+      <section className="bg-primary py-6">
+        <Container className="flex">
+          <div className="flex-1 flex flex-col items-center justify-center">
+            <h4 className="text-white text-3xl mb-2">Limited Offers</h4>
+            <h3 className="text-white text-xl mb-3">Quality Armchair</h3>
+            <Clock />
+          </div>
+          <div className="flex-1 hidden md:block">
+            <img src={CounterImg} alt="counter img" />
+          </div>
+        </Container>
+      </section>
       <Section title="New Arrivals">
         <ProductsList products={[...mobileProducts, ...wirelessProducts]} />
       </Section>
