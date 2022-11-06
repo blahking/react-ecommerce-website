@@ -45,4 +45,8 @@ body {
   .sidebar__link {
     @apply flex justify-center py-4;
   }
+
+  .filter__select {
+    @apply bg-white text-primary border border-primary py-2 px-2 lg:px-5 rounded cursor-pointer;
+  }
 }

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Container from "./Container";
 import Logo from "../UI/Logo";
@@ -54,6 +55,8 @@ const Header = () => {
     setSidebarIsShow(false);
   };
 
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
   return (
     <header ref={headerRef} className="h-[60px] lg:h-[70px] text-primary">
       <Container className="flex items-center justify-between">
@@ -79,7 +82,7 @@ const Header = () => {
             <Badge num="1" />
           </Icon>
           <Icon name="ri-shopping-bag-line">
-            <Badge num="6" />
+            <Badge num={totalQuantity} />
           </Icon>
           <span className="cursor-pointer">
             <img src={UserIcon} alt="user icon" className="w-8" />

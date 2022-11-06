@@ -1,7 +1,23 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+
+import { addItem } from "../../redux/features/cartSlice";
 
 const ProductItem = ({ product }) => {
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(
+      addItem({
+        id: product.id,
+        productName: product.productName,
+        price: product.price,
+        image: product.imgUrl,
+      })
+    );
+  };
+
   return (
     <div className="px-3 mb-4 cursor-pointer text-primary">
       <div>
@@ -19,7 +35,7 @@ const ProductItem = ({ product }) => {
       </div>
       <div className="flex justify-between items-center p-2">
         <span className="text-lg font-semibold">${product.price}</span>
-        <motion.span whileTap={{ scale: 1.2 }}>
+        <motion.span whileTap={{ scale: 1.2 }} onClick={addToCart}>
           <i className="ri-add-line text-white bg-primary text-xl p-[5px] rounded-full"></i>
         </motion.span>
       </div>

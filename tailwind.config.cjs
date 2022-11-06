@@ -13,8 +13,13 @@ module.exports = {
       hero: "#d6e5fb",
       gray: "#999",
       footer: "rgba(255, 255, 255, 0.626)",
+      banner: "rgba(0, 0, 0, 0.562)",
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "banner-img": "url(./src/assets/images/banner-unsplash.jpg)",
+      },
+    },
   },
   plugins: [],
 };
