@@ -19,7 +19,7 @@ const Hero = () => {
             perspiciatis dolore esse enim atque tempore veritatis accusamus
             necessitatibus temporibus saepe!
           </p>
-          <button className="bg-primary text-white px-5 py-2 rounded">
+          <button className="btn">
             <Link to="/shop">Shop Now</Link>
           </button>
         </div>

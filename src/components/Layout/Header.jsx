@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Container from "./Container";
@@ -56,6 +56,11 @@ const Header = () => {
   };
 
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const navigate = useNavigate();
+
+  const navigateToCart = () => {
+    navigate("/cart");
+  };
 
   return (
     <header ref={headerRef} className="h-[60px] lg:h-[70px] text-primary">
@@ -81,7 +86,7 @@ const Header = () => {
           <Icon name="ri-home-heart-line">
             <Badge num="1" />
           </Icon>
-          <Icon name="ri-shopping-bag-line">
+          <Icon name="ri-shopping-bag-line" onClick={navigateToCart}>
             <Badge num={totalQuantity} />
           </Icon>
           <span className="cursor-pointer">

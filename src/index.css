@@ -49,4 +49,16 @@ body {
   .filter__select {
     @apply bg-white text-primary border border-primary py-2 px-2 lg:px-5 rounded cursor-pointer;
   }
+
+  .btn {
+    @apply bg-primary text-white px-5 py-2 rounded;
+  }
+
+  .active_tab {
+    @apply font-semibold;
+  }
+
+  .form-group {
+    @apply border border-primary rounded py-2 px-5 mb-4;
+  }
 }
